@@ -7,6 +7,7 @@ import com.lokesh.bookingplatform.bookingorder.controller.service.OrderServiceIm
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @Validated
@@ -17,7 +18,7 @@ public class OrderController {
     @Autowired
     OrderServiceImpl orderService;
 
-    @RequestMapping("/v1/show")
+    @RequestMapping(value = "/v1/booking", method = RequestMethod.POST)
     BookingOrderResp performOrder(BookingOrderReq bookingOrderReq,BookingOrderResp bookingOrderResp){
 
         return this.orderService.performBooking(bookingOrderReq);
